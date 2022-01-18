@@ -1,0 +1,45 @@
+List<String> resultArray = new ArrayList<>();
+
+        for(int i = 0;i<words.length;i++) {
+            String str = words[i].toLowerCase();
+            if(matchFirstRow(str.charAt(0))){\
+                boolean success = false;
+                for(char schar: str.toCharArray()){
+                    success = matchFirstRow(schar);
+                    if(!success){
+                        break;
+                    }
+                }
+                if(success){
+                    resultArray.add(words[i]);
+                }
+            }
+            else if(matchSecondRow(str.charAt(0))) {
+                boolean success = false;
+                for(char schar: str.toCharArray()){
+                    success = matchSecondRow(schar);
+                    if(!success){
+                        break;
+                    }
+                }
+                if(success){
+                    resultArray.add(words[i]);
+                }
+            }
+            else if(matchLastRow(str.charAt(0))) {
+                boolean success = false;
+                for(char schar: str.toCharArray()){
+                    success = matchLastRow(schar);
+                    if(!success){
+                        break;
+                    }
+                }
+                if(success){
+                    resultArray.add(words[i]);
+                }
+            }
+        }
+        String[] arr = new String[resultArray.size()];
+        return resultArray.toArray(arr);
+    }
+}
